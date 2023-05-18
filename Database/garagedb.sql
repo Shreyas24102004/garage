@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2022 at 05:53 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.1.26
+-- Generation Time: May 18, 2023 at 07:05 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,9 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `brands` (
   `brand_id` int(11) NOT NULL,
   `brand_name` varchar(255) NOT NULL,
-  `brand_active` int(11) NOT NULL DEFAULT '0',
-  `brand_status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `brand_active` int(11) NOT NULL DEFAULT 0,
+  `brand_status` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `brands`
@@ -54,22 +53,18 @@ INSERT INTO `brands` (`brand_id`, `brand_name`, `brand_active`, `brand_status`) 
 CREATE TABLE `categories` (
   `categories_id` int(11) NOT NULL,
   `categories_name` varchar(255) NOT NULL,
-  `categories_active` int(11) NOT NULL DEFAULT '0',
-  `categories_status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `categories_active` int(11) NOT NULL DEFAULT 0,
+  `categories_status` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`categories_id`, `categories_name`, `categories_active`, `categories_status`) VALUES
-(1, 'Maintenance Service Parts', 1, 1),
-(2, 'Air Conditioning', 1, 1),
-(3, 'Belts Chains and Rollers', 1, 1),
-(4, 'Body', 1, 1),
-(5, ' Brake System', 1, 1),
-(6, 'Car Accessories', 1, 1),
-(7, 'Electric Components', 1, 1);
+(1, 'Basic Service ', 1, 1),
+(2, 'Standard Service', 1, 1),
+(3, 'Comprehensive Service', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -88,7 +83,7 @@ CREATE TABLE `manage_website` (
   `login_logo` text NOT NULL,
   `invoice_logo` text NOT NULL,
   `background_login_image` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `manage_website`
@@ -105,12 +100,12 @@ INSERT INTO `manage_website` (`id`, `title`, `short_title`, `logo`, `footer`, `c
 
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
-  `order_date` date NOT NULL,
+  `order_date` date NOT NULL DEFAULT current_timestamp(),
   `client_name` varchar(255) NOT NULL,
   `client_contact` varchar(255) NOT NULL,
   `mechanicname` varchar(100) NOT NULL,
   `supervisor_name` varchar(100) NOT NULL,
-  `vehicle_type` varchar(50) NOT NULL,
+  `vehicle_plate` varchar(50) NOT NULL,
   `vehicle_name` varchar(50) NOT NULL,
   `delivery_date` date DEFAULT NULL,
   `delivery_time` time DEFAULT NULL,
@@ -124,18 +119,20 @@ CREATE TABLE `orders` (
   `payment_type` int(11) NOT NULL,
   `payment_status` int(11) NOT NULL,
   `payment_place` int(11) NOT NULL,
-  `gstn` varchar(255) NOT NULL,
-  `order_status` int(11) NOT NULL DEFAULT '0',
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `service` varchar(255) NOT NULL,
+  `order_status` int(11) NOT NULL DEFAULT 1,
+  `user_id` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `order_date`, `client_name`, `client_contact`, `mechanicname`, `supervisor_name`, `vehicle_type`, `vehicle_name`, `delivery_date`, `delivery_time`, `sub_total`, `vat`, `total_amount`, `discount`, `grand_total`, `paid`, `due`, `payment_type`, `payment_status`, `payment_place`, `gstn`, `order_status`, `user_id`) VALUES
-(1, '2022-07-07', '1', '8090809090', 'Akash Patil', 'Rohit More', 'fourwheeler', 'MH17CK4545', '2022-07-07', '17:10:00', '1098.00', '197.64', '1295.64', '', '1295.64', '1295', '0.64', 2, 1, 1, '197.64', 1, 1),
-(2, '2022-07-07', '2', '7080708070', 'Gaurav Patil', 'Mr.Subhash Jadhav', 'fourwheeler', 'MH41GX8979', '2022-07-08', '12:36:00', '1627.00', '292.86', '1919.86', '', '1919.86', '1919', '0.86', 2, 1, 1, '292.86', 1, 1);
+INSERT INTO `orders` (`order_id`, `order_date`, `client_name`, `client_contact`, `mechanicname`, `supervisor_name`, `vehicle_plate`, `vehicle_name`, `delivery_date`, `delivery_time`, `sub_total`, `vat`, `total_amount`, `discount`, `grand_total`, `paid`, `due`, `payment_type`, `payment_status`, `payment_place`, `service`, `order_status`, `user_id`) VALUES
+(13, '2023-05-18', 'Nilesh', '4567891320', 'jdaslkjas', 'jaslkdsj', 'DF45GH1324', 'Maruti Suzuki', '2023-05-21', '17:00:00', '5899.00', '', '5899.00', '', '5899.00', '5899', '0.00', 5, 2, 0, 'Standard Service', 1, 1),
+(14, '2023-05-18', 'Shreyas', '6353168537', '', '', 'GJ12FG5689', 'Fanti', '2023-05-20', '17:00:00', '', '', '', '', '4799', '', '', 4, 0, 0, 'Basic service', 1, 1),
+(15, '2023-05-18', 'Shreyas', '6353168537', '', '', 'GJ12DG4532', 'Supra', '2023-05-20', '22:16:00', '', '', '', '', '4799', '', '', 4, 0, 0, 'Basic service', 1, 1),
+(16, '2023-05-18', 'Shreyas', '6353168537', '', '', 'GJ27FF5555', 'Dezire', '2023-05-26', '22:00:00', '', '', '', '', '4799', '', '', 1, 0, 0, 'Basic service', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -145,24 +142,29 @@ INSERT INTO `orders` (`order_id`, `order_date`, `client_name`, `client_contact`,
 
 CREATE TABLE `order_item` (
   `order_item_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL DEFAULT '0',
-  `product_id` int(11) NOT NULL DEFAULT '0',
+  `order_id` int(11) NOT NULL DEFAULT 0,
+  `product_id` int(11) NOT NULL DEFAULT 0,
   `quantity` varchar(255) NOT NULL,
   `rate` varchar(255) NOT NULL,
   `total` varchar(255) NOT NULL,
-  `order_item_status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `order_item_status` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `order_item`
 --
 
 INSERT INTO `order_item` (`order_item_id`, `order_id`, `product_id`, `quantity`, `rate`, `total`, `order_item_status`) VALUES
-(1, 1, 1, '1', '589', '589.00', 1),
-(2, 1, 2, '1', '509', '509.00', 1),
-(3, 2, 1, '1', '589', '589.00', 1),
-(4, 2, 2, '1', '509', '509.00', 1),
-(5, 2, 3, '1', '529', '529.00', 1);
+(1, 1, 1, '1', '589', '589.00', 2),
+(2, 1, 2, '1', '509', '509.00', 2),
+(3, 2, 1, '1', '589', '589.00', 2),
+(4, 2, 2, '1', '509', '509.00', 2),
+(5, 2, 3, '1', '529', '529.00', 2),
+(6, 4, 3, '1', '7499', '7499.00', 2),
+(7, 5, 2, '1', '5899', '5899.00', 1),
+(8, 6, 1, '1', '4799', '4799.00', 1),
+(9, 7, 1, '1', '4799', '4799.00', 1),
+(10, 13, 2, '1', '5899', '5899.00', 1);
 
 -- --------------------------------------------------------
 
@@ -178,19 +180,18 @@ CREATE TABLE `product` (
   `categories_id` int(11) NOT NULL,
   `quantity` varchar(255) NOT NULL,
   `rate` varchar(255) NOT NULL,
-  `active` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `active` int(11) NOT NULL DEFAULT 0,
+  `status` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `brand_id`, `categories_id`, `quantity`, `rate`, `active`, `status`) VALUES
-(1, 'Rear Brake Shoe Set', 'Rear Brake Shoe Set.jpg', 1, 5, '498', '589', 1, 1),
-(2, 'Fuel Filter', 'Fuel Filter.jfif', 1, 1, '198', '509', 1, 1),
-(3, 'Air Filter', 'Air Filter.jpg', 1, 1, '99', '529', 1, 1),
-(4, 'Front Brake Pad Set', 'gjhjhgjh.jpg', 4, 5, '130', '399', 1, 1);
+(1, 'Basic Services ', '', 1, 1, '496', '4799', 1, 1),
+(2, 'Standard Service ', '', 1, 2, '196', '5899', 1, 1),
+(3, 'Comprehensive Service', '', 1, 3, '98', '7499', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -205,9 +206,9 @@ CREATE TABLE `tbl_client` (
   `mob_no` varchar(150) NOT NULL,
   `reffering` varchar(150) NOT NULL,
   `address` varchar(250) NOT NULL,
-  `created_date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `delete_status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_client`
@@ -231,7 +232,33 @@ CREATE TABLE `tbl_email_config` (
   `mail_username` varchar(50) NOT NULL,
   `mail_password` varchar(30) NOT NULL,
   `mail_encrypt` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `User_Id` int(11) NOT NULL,
+  `User_Name` varchar(100) NOT NULL,
+  `User_Contact` bigint(100) NOT NULL,
+  `User_Email` varchar(100) NOT NULL,
+  `User_Address` varchar(100) NOT NULL,
+  `User_Password` varchar(20) NOT NULL,
+  `User_Date` date NOT NULL DEFAULT current_timestamp(),
+  `User_status` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`User_Id`, `User_Name`, `User_Contact`, `User_Email`, `User_Address`, `User_Password`, `User_Date`, `User_status`) VALUES
+(1, 'Shreyas', 6353168537, 'shreyas@gmail.com', '401,Adasrh Flora', 'Shreyas@123', '2023-05-17', 0),
+(2, 'Nilesh', 2147483647, 'nilesh@gmail.com', 'Krishna Nagar', 'Abc@12345', '2023-05-17', 0),
+(3, 'Vandan', 2147483647, 'vandan@gmail.com', 'E-403, Satya Residency ', '', '2023-05-17', 0);
 
 -- --------------------------------------------------------
 
@@ -244,14 +271,14 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `email`) VALUES
-(1, 'mayuri.infospace@gmail.com', 'cd92a26534dba48cd785cdcc0b3e6bd1', 'mayuri.infospace@gmail.com');
+(1, 'admin@gmail.com', 'cd92a26534dba48cd785cdcc0b3e6bd1', 'mayuri.infospace@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -306,6 +333,12 @@ ALTER TABLE `tbl_email_config`
   ADD PRIMARY KEY (`e_id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`User_Id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -337,13 +370,13 @@ ALTER TABLE `manage_website`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -362,6 +395,12 @@ ALTER TABLE `tbl_client`
 --
 ALTER TABLE `tbl_email_config`
   MODIFY `e_id` int(21) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `User_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -17,7 +17,7 @@ include('./constant/check.php');
                     <a class="navbar-brand" href="index.php">
                         
                          
-                        <b><img src="./assets/uploadImage/Logo/logo.jpg" style="width: 35%;" alt="homepage" class="dark-logo" style="width:100%;height:auto;"/></b>
+                        <b><img src="./assets/uploadImage/Logo/logo.jpg" style="width: 35%;" alt="homepage" class="dark-logo" /></b>
                        
                     </a>
                 </div>
@@ -39,8 +39,6 @@ include('./constant/check.php');
                    
                     </div>
                     <ul class="navbar-nav my-lg-0 ml-auto">
-  <div id="google_translate_element"></div>
-                      
                         
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

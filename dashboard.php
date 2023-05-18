@@ -45,9 +45,6 @@ $connect->close();
 
 <div class="container-fluid">
                 <br>
-             <marquee direction="left" behavior="alternate" scrollamount=1 >
-                  <h3 style="color:red"><b>Alert : Don't Sale or Publish this script with your name. However you can use it for Academic learning Purpose !</b></h3>
-               </marquee>
         
 
                       <div class="row">
