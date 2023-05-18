@@ -39,11 +39,9 @@ $result = $connect->query($sql);
                                             <tr>
                                               <th>#</th>
                                                 <th>Client Name</th>
-                                                <th>Gender</th>
                                                 <th>Mobile NO</th>
-                                                <th>Reffering</th>
+                                                <th>Email</th>
                                                 <th>Address</th>
-                                                <th>Action</th>
                                             </tr>
                                        </thead>
                                        <tbody>
@@ -53,19 +51,18 @@ foreach ($result as $row) {
     ?>
                                         <tr>
                                             <td><?php echo$no; ?></td>
-                                            <td><?php echo $row['name'] ?></td>
-                                            <td><?php echo $row['gender'] ?></td>
-                                              <td><?php echo $row['mob_no'] ?></td>
-                                            <td><?php echo $row['reffering'] ?></td>
-                                            <td><?php echo $row['address'] ?></td>
+                                            <td><?php echo $row['User_Name'] ?></td>
+                                            <td><?php echo $row['User_Contact'] ?></td>
+                                              <td><?php echo $row['User_Eimal'] ?></td>
+                                            <td><?php echo $row['User_Address'] ?></td>
                                           
                                             <td>
             
-                                                <a href="editclient.php?id=<?php echo $row['id']?>"><button type="button" class="btn btn-xs btn-primary" ><i class="fa fa-pencil"></i></button></a>
+                                                <a href="editclient.php?id=<?php echo $row['User_Id']?>"><button type="button" class="btn btn-xs btn-primary" ><i class="fa fa-pencil"></i></button></a>
                                               
 
              
-                                                <a href="php_action/removeclient.php?id=<?php echo $row['id']?>" ><button type="button" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash"></i></button></a>
+                                                <a href="php_action/removeclient.php?id=<?php echo $row['User_Id']?>" ><button type="button" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash"></i></button></a>
                                            
                                                 
                                                 </td>

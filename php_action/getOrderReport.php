@@ -31,16 +31,16 @@ if($_POST) {
 		<tr>';
 		$totalAmount = 0;
 		while ($result = $query->fetch_assoc()) {
-			$sql1 = "SELECT * FROM tbl_client  
-          WHERE id = '".$result['client_name']."'";
+			$sql1 = "SELECT * FROM user  
+          WHERE User_Id = '".$result['User_Name']."'";
 
         $result1 = $connect->query($sql1);
         $data1 = $result1->fetch_assoc();
 
 			$table .= '<tr>
 				<td><center>'.$result['order_date'].'</center></td>
-				<td><center>'.$data1['name'].'</center></td>
-				<td><center>'.$data1['mob_no'].'</center></td>
+				<td><center>'.$data1['User_Name'].'</center></td>
+				<td><center>'.$data1['User_Contact'].'</center></td>
 				<td><center>'.$result['grand_total'].'</center></td>
 			</tr>';	
 			$totalAmount += $result['grand_total'];

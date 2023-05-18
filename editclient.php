@@ -1,7 +1,4 @@
 <?php include('./constant/layout/head.php');?>
-<!--  Author Name- Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website - www.mayurik.com -->
 
 <?php include('./constant/layout/header.php');?>
 
@@ -10,7 +7,7 @@
 
 
 
-  $sql="SELECT * from tbl_client where  id='".$_GET['id']."'";
+  $sql="SELECT * from user where  User_Id='".$_GET['id']."'";
   $result=$connect->query($sql)->fetch_assoc();
 
 
@@ -29,11 +26,6 @@
                     </ol>
                 </div>
             </div>
-            
-            
-            <!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website : www.mayurik.com -->
 
 <div class="container-fluid">
                 
@@ -57,18 +49,8 @@
                                             <div class="row">
                                                 <label class="col-sm-3 control-label"> Name</label>
                                                 <div class="col-sm-9">
-                                                  <input type="text" class="form-control" id="name" placeholder=" Name" name="name" autocomplete="off" required="" value="<?php  echo$result['name'];?>" />
+                                                  <input type="text" class="form-control" id="name" placeholder=" Name" name="name" autocomplete="off" required="" value="<?php  echo$result['User_Name'];?>" />
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <label class="col-sm-3 control-label">Gender</label>
-                                                <div class="col-sm-9">
-                                                                                                  <select class="form-control" id="brandName" name="gender">
-                                                                                                    <option value="Female" <?php if($result['gender']=="Female"){ echo "selected";}?>>Female</option>
-                                                                                                    <option value="Male" <?php if($result['gender']=="Male"){ echo "selected";}?>>Male</option>
-</select></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -76,15 +58,15 @@
                                                 <label class="col-sm-3 control-label">Mobile No
 </label>
                                                 <div class="col-sm-9">
-                        <input type="text" class="form-control" id="" placeholder="" name="mob_no" autocomplete="off" required="" value="<?php  echo$result['mob_no'];?>" />
+                        <input type="text" class="form-control" id="" placeholder="" name="mob_no" autocomplete="off" required="" value="<?php  echo$result['User_Contact'];?>" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
-                                                <label class="col-sm-3 control-label">Reffering</label>
+                                                <label class="col-sm-3 control-label">Email</label>
                                                 <div class="col-sm-9">
-                                                                                                    <input type="text" class="form-control" id="" placeholder="" name="reffering" autocomplete="off" required="" value="<?php  echo$result['reffering'];?>" />
+                                                                                                    <input type="text" class="form-control" id="" placeholder="" name="email" autocomplete="off" required="" value="<?php  echo$result['User_Email'];?>" />
 
                                             </div>
                                         </div>
@@ -93,7 +75,7 @@
                                             <div class="row">
                                                 <label class="col-sm-3 control-label">Address</label>
                                                 <div class="col-sm-9">
-                                                                                                    <textarea type="text" class="form-control" id="" placeholder="" name="address" autocomplete="off" required="" style="height: 150px;"><?php  echo$result['address'];?></textarea>
+                                                                                                    <textarea type="text" class="form-control" id="" placeholder="" name="address" autocomplete="off" required="" style="height: 150px;"><?php  echo$result['User_Address'];?></textarea>
 
                                             </div>
                                         </div>
@@ -108,13 +90,6 @@
                     </div>
                   
                 </div>
-                
-               
-
-
-<!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website : www.mayurik.com -->
 <?php include('./constant/layout/footer.php');?>
 
 

@@ -121,7 +121,7 @@ background-color: #cccccc;  background-position: center;
                     <div class="col-md-4 ml-auto">
                         <div class="login-content">
                             <div class="login-form">
-                                <center><img src="./assets/uploadImage/Logo/logo.jpg" style="width: 100%;"></center><br>
+                                <center><img src="./assets/uploadImage/Logo/logo.jpg" style="width: 58%;"></center><br>
                                 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" id="loginForm" class="row">
                                     <div class="form-group col-md-12">
                                         <label lass="control-label">Username</label>
@@ -143,10 +143,6 @@ background-color: #cccccc;  background-position: center;
                                    
                                     <button type="submit" name="login" class="f-w-600 btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
                                     <br>
-                                    
-                                           <p style="color: red; font-size: 16px;"><b>
-                                             Contact me for any Project Development : mayuri.infospace@gmail.com</b>
-                                           </p>
                                         
                             </form>
 

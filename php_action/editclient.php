@@ -8,14 +8,13 @@ $id = $_GET['id'];
 if($_POST) {	
 //echo "123";exit;
 	 $name = $_POST['name']; 
-    $reffering = $_POST['reffering']; 
+    $reffering = $_POST['email']; 
         $address = $_POST['address']; 
-                $gender = $_POST['gender']; 
                 $mob_no = $_POST['mob_no']; 
 
 
 //echo $brandId;exit;
-	$sql = "UPDATE tbl_client SET name = '$name', reffering = '$reffering',address = '$address', gender = '$gender',mob_no = '$mob_no' WHERE id = '$id'";
+	$sql = "UPDATE user SET User_Name = '$name', User_Email = '$reffering',User_Address = '$address', User_Contact = '$mob_no' WHERE User_Id = '$id'";
 //echo $sql;exit;
 	if($connect->query($sql) === TRUE) {
 	 	$valid['success'] = true;

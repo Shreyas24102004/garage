@@ -21,13 +21,13 @@ print_r($service1);
 
     $users_arr = array();
 
-      $sql1 = "SELECT * FROM tbl_client  
-          WHERE id = '".$_POST['customer_id']."'";
+      $sql1 = "SELECT * FROM user  
+          WHERE User_Id = '".$_POST['customer_id']."'";
 
         $result1 = $connect->query($sql1);
         $row = $result1->fetch_assoc();
 
-      echo$mob_no = $row['mob_no'];
+      echo$mob_no = $row['User_Contact'];
       
         /*$result1=$conn->query($sql_service1);  
         $service1 = mysqli_fetch_array($result1);

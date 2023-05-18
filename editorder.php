@@ -1,7 +1,4 @@
 <?php include('./constant/layout/head.php');?>
-<!--  Author Name- Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website - www.mayurik.com -->
 
 <?php include('./constant/layout/header.php');?>
 
@@ -66,11 +63,6 @@ if($_GET['o'] == 'add') {
                     </ol>
                 </div>
             </div>
-            
-            
-            <!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website : www.mayurik.com -->
 
 <div class="container-fluid">
                 
@@ -95,8 +87,8 @@ if($_GET['o'] == 'add') {
 
         $result = $connect->query($sql);
         $data = $result->fetch_array();
-         $sql1 = "SELECT * FROM tbl_client  
-          WHERE id = '".$data[2]."'";
+         $sql1 = "SELECT * FROM user  
+          WHERE User_Id = '".$data[2]."'";
 
         $result1 = $connect->query($sql1);
         $data1 = $result1->fetch_assoc();
@@ -118,13 +110,13 @@ if($_GET['o'] == 'add') {
              <select class="form-control" id="clientName" name="clientName">
                         <option value="">~~SELECT~~</option>
                         <?php 
-                        $sql = "SELECT * FROM tbl_client WHERE delete_status =0";
+                        $sql = "SELECT * FROM user WHERE User_status =0";
                                 $result = $connect->query($sql);
 
                                 while($row = $result->fetch_array()) {?>
-                                    <option value="<?php echo$row['id'];?>"<?php if($data[2] == $row['id']) {
+                                    <option value="<?php echo$row['User_Id'];?>"<?php if($data[2] == $row['User_Id']) {
                   echo "selected";
-                } ?> ><?php echo$row['name'];?></option>
+                } ?> ><?php echo$row['User_Name'];?></option>
                                <?php } // while
                                 
                         ?>
@@ -137,7 +129,7 @@ if($_GET['o'] == 'add') {
            <div class="row">
            <label class="col-sm-3 control-label">Client Contact</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="clientContact" name="clientContact" placeholder="Contact Number" autocomplete="off" value="<?php echo $data1['mob_no'] ?>" />
+            <input type="text" class="form-control" id="clientContact" name="clientContact" placeholder="Contact Number" autocomplete="off" value="<?php echo $data1['User_Contact'] ?>" />
           </div>
         </div> 
       </div>  
@@ -159,26 +151,15 @@ if($_GET['o'] == 'add') {
                                         </div>
                                          <div class="form-group">
                                             <div class="row">
-                                                <label class="col-sm-2 control-label">Vehicle Type</label>
-                                                <div class="col-sm-4">
-                                                   <select class="form-control select2" id="clientName" name="vtype">
-                                                <option value="" readonly>~~SELECT~~</option>
-                                         <option <?php if($data['vehicle_type']=="twowheeler"){ ?> selected="selected" <?php }?> value='twowheeler' >Two Wheeler</option>
-                                                  
-                                                   
-                                         <option <?php if($data['vehicle_type']=="threewheeler"){ ?> selected="selected" <?php }?> value='threewheeler' >Three Wheeler</option>
-  
-                                         <option <?php if($data['vehicle_type']=="fourwheeler"){ ?> selected="selected" <?php }?> value='fourwheeler' >Four Wheeler </option>
-  
-
-                                                
-                                               </select>
-                                             </div>
-
                                                 <label class="col-sm-2 control-label">Vehicle Name</label>
                                                 <div class="col-sm-4">
+                                                <input type="text"class="form-control" name="vname" value="<?php echo $data['vehicle_name'] ?>"   required style="color:black;">
+                                              </div>
+
+                                                <label class="col-sm-2 control-label">Vehicle Plate</label>
+                                                <div class="col-sm-4">
                                                
-                          <input type="text" class="form-control" id="mob_no" name="vname" value="<?php echo $data['vehicle_name'] ?>"   required style="color:black;" >
+                          <input type="text" class="form-control" id="mob_no" name="vplate" value="<?php echo $data['vehicle_plate'] ?>"   required style="color:black;" >
                                                 </div>
                                             
 
@@ -348,9 +329,9 @@ if($_GET['o'] == 'add') {
           </div> 
           <div class="form-group">
              <div class="row">
-            <label for="gstn" class="col-sm-3 control-label gst">G.S.T.IN</label>
+            <label for="service" class="col-sm-3 control-label gst">Service</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="gstn" name="gstn" value="<?php echo $data["gstn"] ?>"  />
+              <input type="text" class="form-control" id="gstn" name="service" value="<?php echo $data["service"] ?>"  />
             </div>
           </div>
           </div>             
@@ -421,22 +402,6 @@ if($_GET['o'] == 'add') {
               </select>
             </div>
           </div> 
-          </div> 
-          <div class="form-group">
-             <div class="row">
-            <label for="clientContact" class="col-sm-3 control-label">Payment Place</label>
-            <div class="col-sm-9">
-              <select class="form-control" name="paymentPlace" id="paymentPlace">
-                <option value="">~~SELECT~~</option>
-                <option value="1" <?php if($data["payment_place"] == 1) {
-                  echo "selected";
-                } ?>  >In India</option>
-                <option value="2" <?php if($data["payment_place"] == 2) {
-                  echo "selected";
-                } ?> >Out Of India</option>
-              </select>
-            </div>
-          </div>
           </div>                
         
 
@@ -458,13 +423,6 @@ if($_GET['o'] == 'add') {
                     </div>
                   
                 </div>
-                
-               
-
-
-<!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website : www.mayurik.com -->
 <?php include('./constant/layout/footer.php');?>
 
 <script>

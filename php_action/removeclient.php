@@ -9,7 +9,7 @@ $id = $_GET['id'];
 //echo $brandId;exit;
 
 
- $sql = "UPDATE tbl_client SET delete_status = 1 WHERE id = {$id}";
+ $sql = "UPDATE user SET User_status = 1 WHERE User_Id = {$id}";
 //echo $sql;exit;
  if($connect->query($sql) === TRUE) {
  	$valid['success'] = true;

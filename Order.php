@@ -1,15 +1,11 @@
 <?php include('./constant/layout/head.php');?>
-<!--  Author Name- Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website - www.mayurik.com -->
-
 <?php include('./constant/layout/header.php');?>
 
 <?php //include('./constant/layout/sidebar.php');?>
 
 <?php include('./constant/connect');
  $user=$_SESSION['userId'];
-$sql = "SELECT order_id, order_date, client_name, client_contact, payment_status FROM orders WHERE order_status = 1 AND user_id = '$user'";
+$sql = "SELECT order_id, order_date, client_name, client_contact, payment_status, service FROM orders WHERE order_status = 1 AND user_id = '$user'";
 $result = $connect->query($sql);
 
 //echo $sql;exit;
@@ -28,11 +24,6 @@ $result = $connect->query($sql);
                     </ol>
                 </div>
             </div>
-            
-            
-            <!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website : www.mayurik.com -->
 
 <div class="container-fluid">
                 
@@ -52,7 +43,7 @@ $result = $connect->query($sql);
                         <th>Invoice Date</th>
                         <th>Client Name</th>
                         <th>Contact</th>
-                        <th>Total Invoice Item</th>
+                        <th>Service</th>
                         <th>Payment Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -68,7 +59,7 @@ foreach ($result as $row) {
                                             <td><?php echo $row['order_date'] ?></td>
                                              <td><?php echo $row['client_name'] ?></td>
                                               <td><?php echo $row['client_contact'] ?></td>
-                                               <td><?php  ?></td>
+                                               <td><?php echo $row['service'] ?></td>
                                             <td><?php  if($row['payment_status']==1)
                                             {
                                                  
@@ -106,10 +97,6 @@ foreach ($result as $row) {
                                 </div>
                             </div>
                         </div>
-
-<!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website : www.mayurik.com -->
 <?php include('./constant/layout/footer.php');?>
 
 

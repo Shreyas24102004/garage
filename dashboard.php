@@ -1,8 +1,5 @@
 <?php error_reporting(1); ?>
 <?php include('./constant/layout/head.php');?>
-<!--  Author Name- Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website - www.mayurik.com -->
 
 <?php include('./constant/layout/header.php');?>
 
@@ -19,11 +16,11 @@ $countOrder = $orderQuery->num_rows;
 
 $totalRevenue = 0;
 
-while ($orderResult = $orderQuery->fetch_assoc()) {
-    //echo $orderResult['paid'];exit;
-    $totalRevenue += $orderResult['paid'];
+// while ($orderResult = $orderQuery->fetch_assoc()) {
+//     //echo $orderResult['paid'];exit;
+//     $totalRevenue += $orderResult['paid'];
 
-}
+// }
 
 $lowStockSql = "SELECT * FROM product WHERE quantity <= 3 AND status = 1";
 $lowStockQuery = $connect->query($lowStockSql);
@@ -45,12 +42,6 @@ $connect->close();
         
         <div class="page-wrapper">
             
-      
-            
-            
-            <!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website : www.mayurik.com -->
 
 <div class="container-fluid">
                 <br>

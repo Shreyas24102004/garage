@@ -13,7 +13,7 @@ if($_POST) {
   $mechanicName                  = $_POST['mname'];
   $supervisorName                  = $_POST['sname'];
   $vehicleName                  = $_POST['vname'];
-  $vehicleType                  = $_POST['vtype'];
+  $vehiclePlate                  = $_POST['vplte'];
   $deliveryDate                  = $_POST['deliverydate'];
   $deliveryTime                  = $_POST['deliverytime'];
   $subTotalValue 				= $_POST['subTotalValue'];
@@ -26,10 +26,10 @@ if($_POST) {
   $paymentType 					= $_POST['paymentType'];
   $paymentStatus 				= $_POST['paymentStatus'];
   $paymentPlace 				= $_POST['paymentPlace'];
-  $gstn 				= $_POST['gstn'];
+  $service 				= $_POST['service'];
 	$userid 				= $_SESSION['userId'];
 				
-	$sql = "UPDATE orders SET order_date = '$orderDate', client_name = '$clientName', client_contact = '$clientContact',mechanicname = '$mechanicName',supervisor_name = '$supervisorName',vehicle_type = '$vehicleType',vehicle_name = '$vehicleName',delivery_date = '$deliveryDate',delivery_time = '$deliveryTime', sub_total = '$subTotalValue', vat = '$vatValue', total_amount = '$totalAmountValue', discount = '$discount', grand_total = '$grandTotalValue', paid = '$paid', due = '$dueValue', payment_type = '$paymentType', payment_status = '$paymentStatus', order_status = 1 ,user_id = '$userid',payment_place = '$paymentPlace' , gstn = '$gstn' WHERE order_id = {$orderId}";	
+	$sql = "UPDATE orders SET order_date = '$orderDate', client_name = '$clientName', client_contact = '$clientContact',mechanicname = '$mechanicName',supervisor_name = '$supervisorName',vehicle_plate = '$vehiclePlate',vehicle_name = '$vehicleName',delivery_date = '$deliveryDate',delivery_time = '$deliveryTime', sub_total = '$subTotalValue', vat = '$vatValue', total_amount = '$totalAmountValue', discount = '$discount', grand_total = '$grandTotalValue', paid = '$paid', due = '$dueValue', payment_type = '$paymentType', payment_status = '$paymentStatus', order_status = 1 ,user_id = '$userid',payment_place = '$paymentPlace' , service = '$service' WHERE order_id = {$orderId}";	
 	$connect->query($sql);
 	$readyToUpdateOrderItem = false;
 	// add the quantity from the order item to product table

@@ -1,8 +1,4 @@
 <?php include('./constant/layout/head.php');?>
-<!--  Author Name- Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website - www.mayurik.com -->
-
 <?php include('./constant/layout/header.php');?>
 
 <?php //include('./constant/layout/sidebar.php');?>   
@@ -24,12 +20,6 @@ $result = $connect->query($sql);
                     </ol>
                 </div>
             </div>
-            
-            
-            <!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website : www.mayurik.com -->
-
 <div class="container-fluid">
                 
                 
@@ -76,9 +66,5 @@ foreach ($result as $row) {
                                 </div>
                             </div>
                         </div>
-
-<!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website : www.mayurik.com -->
 <?php include('./constant/layout/footer.php');?>
 

@@ -1,7 +1,4 @@
 <?php include('./constant/layout/head.php');?>
-<!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website : www.mayurik.com -->
 
 <?php 
 include('./constant/connect.php');?>
@@ -25,8 +22,8 @@ include('./constant/connect.php');?>
 
                       $row1 = $productData1->fetch_array();
                  
- $sql1 = "SELECT * FROM tbl_client  
-          WHERE id = '".$row['client_name']."'";
+ $sql1 = "SELECT * FROM user  
+          WHERE User_Id = '".$row['client_name']."'";
 
         $result1 = $connect->query($sql1);
         $data1 = $result1->fetch_assoc();
@@ -61,9 +58,9 @@ $query=$connect->query($que);
                                         <div class="col-sm-4">
                                             <br>
                                             <h5 class="mb-3" style="color: black;">From:</h5>                                            
-                                            <h3 class="text-dark mb-1">ORANGE STATION</h3>
+                                            <h3 class="text-dark mb-1">Online Car Repair System</h3>
                                          <div><?php echo $web['currency_code']; ?></div>
-<!--                                             <div><?=$result['address']?></div>
+<!--                                             <div><?=$result['User_Address']?></div>
  -->                                            <div>Email: <?=$row1['email']?></div>
                                              <div>Contact: <?php echo $web['short_title']; ?></div>
                                              
@@ -71,10 +68,10 @@ $query=$connect->query($que);
                                         <div class="col-sm-4">
                                             <br>
                                             <h5 class="mb-3" style="color: black;">To:</h5>
-                                            <h3 class="text-dark mb-1"><?= $data1['name']; ?></h3>                                            
-                                            <div><?= $data1['address']; ?></div>
+                                            <h3 class="text-dark mb-1"><?= $data1['User_Name']; ?></h3>                                            
+                                            <div><?= $data1['User_Address']; ?></div>
 
-                                            <div>Phone: <?= $data1['mob_no']; ?></div>
+                                            <div>Phone: <?= $data1['User_Contact']; ?></div>
                                         </div>
                                     </div>
                                     <div class="table-responsive-sm">
@@ -180,13 +177,6 @@ $query=$connect->query($que);
                     </div>
                   
                 </div>
-                
-               
-
-
-<!--  Author Name: Mayuri K. 
- for any PHP, Codeignitor, Laravel OR Python work contact me at mayuri.infospace@gmail.com  
- Visit website : www.mayurik.com -->
 <?php include('./constant/layout/footer.php');?>
  <script>
 function goBack() {
