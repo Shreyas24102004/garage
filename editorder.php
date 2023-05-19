@@ -107,22 +107,22 @@ if($_GET['o'] == 'add') {
            <div class="row">
             <label class="col-sm-3 control-label">Client Name</label>
            <div class="col-sm-9">
-             <select class="form-control" id="clientName" name="clientName">
+             <!-- <select class="form-control" id="clientName" name="clientName">
                         <option value="">~~SELECT~~</option>
                         <?php 
                         $sql = "SELECT * FROM user WHERE User_status =0";
                                 $result = $connect->query($sql);
 
                                 while($row = $result->fetch_array()) {?>
-                                    <option value="<?php echo$row['User_Id'];?>"<?php if($data[2] == $row['User_Id']) {
+                                    <option value="<?php echo$row['User_Name'];?>"<?php if($data[2] == $row['User_Name']) {
                   echo "selected";
                 } ?> ><?php echo$row['User_Name'];?></option>
                                <?php } // while
                                 
                         ?>
-                      </select>
-<!--             <input type="text" class="form-control" id="clientName" name="clientName" placeholder="Client Name" autocomplete="off" value="<?php echo $data[2] ?>" />
- -->          </div>
+                      </select> -->
+            <input type="text" class="form-control" id="clientName" name="clientName" placeholder="Client Name" autocomplete="off" value="<?php echo $data[2] ?>" />
+           </div>
         </div>
         </div> 
         <div class="form-group">
@@ -318,15 +318,15 @@ if($_GET['o'] == 'add') {
             </div>
           </div> 
           </div>  
-          <div class="form-group">
-             <div class="row">
+          <!-- <div class="form-group">
+            <div class="row">
             <label for="vat" class="col-sm-3 control-label gst"><?php if($data["payment_place"] == 2) {echo "IGST 18%";} else echo "GST 18%"; ?></label>
             <div class="col-sm-9">
               <input type="text" class="form-control" id="vat" name="vat" disabled="true" value="<?php echo $data["vat"] ?>"  />
               <input type="hidden" class="form-control" id="vatValue" name="vatValue" value="<?php echo $data["vat"] ?>"  />
             </div>
           </div>
-          </div> 
+          </div>  -->
           <div class="form-group">
              <div class="row">
             <label for="service" class="col-sm-3 control-label gst">Service</label>

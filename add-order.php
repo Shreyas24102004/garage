@@ -109,20 +109,20 @@ if($_GET['o'] == 'add') {
                                             <div class="row">
                                                 <label class="col-sm-2 control-label">Client Name</label>
                                                 <div class="col-sm-4">
-                                                   <select class="form-control select2" id="clientName" name="clientName">
+                                                   <!-- <select class="form-control select2" id="clientName" name="clientName">
                         <option value="">~~SELECT~~</option>
                         <?php 
-                        $sql = "SELECT * FROM tbl_client WHERE delete_status =0";
+                        $sql = "SELECT * FROM user WHERE User_status =0";
                                 $result = $connect->query($sql);
 
                                 while($row = $result->fetch_array()) {
-                                    echo "<option value='".$row['id']."'>".$row['name']."</option>";
+                                    echo "<option value='".$row['User_Name']."'>".$row['User_Name']."</option>";
                                 } // while
                                 
                         ?>
-                      </select>
-<!--                                                  <input type="text" class="form-control" id="clientName" name="clientName" placeholder="Client Name" autocomplete="off" />
- -->                                               </div>
+                      </select> -->
+                                             <input type="text" class="form-control" id="clientName" name="clientName" placeholder="Client Name" autocomplete="off" />
+                                            </div>
 
                                                 <label class="col-sm-2 control-label">Client Contact No.</label>
                                                 <div class="col-sm-4">
@@ -305,7 +305,7 @@ if($_GET['o'] == 'add') {
                                             <div class="row">
                                                 <label for="vat" class="col-sm-2 control-label gst">Service</label>
                                                 <div class="col-sm-4">
-                                                  <input type="text" class="form-control" id="vat" name="service" readonly="true" />
+                                                  <input type="text" class="form-control" id="vat" name="service" />
                                                 </div>
 
                                                 <label for="paid" class="col-sm-2 control-label">Paid Amount</label>
