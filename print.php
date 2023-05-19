@@ -3,11 +3,11 @@
 <?php 
 include('./constant/connect.php');?>
  
-        <div class="">
+        <!-- <div class=""> -->
             
            
             
-            <div class="container-fluid" style="background-color: #ffffff;">
+            <!-- <div class="container-fluid" style="background-color: #ffffff;"> -->
                 
                 
                 <?php
@@ -61,7 +61,7 @@ $query=$connect->query($que);
                                             <h3 class="text-dark mb-1">Online Car Repair System</h3>
                                          <div><?php echo $web['currency_code']; ?></div>
 <!--                                             <div><?=$result['User_Address']?></div>
- -->                                            <div>Email: <?=$row1['email']?></div>
+ -->                                            <div>Email: shreyas@gmail.com</div>
                                              <div>Contact: <?php echo $web['short_title']; ?></div>
                                              
                                         </div>
@@ -162,7 +162,6 @@ $query=$connect->query($que);
                                     <p class="mb-0">Thank you for your business !</p>
                                 </div>
                                 <br><br><br><br>
-                                <p style="text-align:right;">Software Developed by Mayuri K. - www.mayurik.com</p>
                         </div>
                                                             
 

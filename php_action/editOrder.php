@@ -87,7 +87,7 @@ if($_POST) {
 	$valid['success'] = true;
 	$valid['messages'] = "Successfully Updated";		
 	$connect->close();
-	header('location:'.$_SERVER['HTTP_REFERER']);
+	header('location: ');
 
 	echo json_encode($valid);
  
